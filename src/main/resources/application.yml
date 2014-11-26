@@ -1,0 +1,44 @@
+spring:
+
+  freemarker:
+    exposeSessionAttributes: true
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tools?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    maxActive: 150
+    maxIdle: 10
+    minIdle: 5
+    initialSize: 5
+    minEvictableIdleTimeMillis: 1800000
+    timeBetweenEvictionRunsMillis: 1800000
+    maxWait: 10000
+    validationQuery: SELECT 1
+    testOnBorrow: true
+    testOnReturn: true
+    testWhileIdle: true
+
+  jpa:
+    generateDdl: true
+
+server:
+  port: 8080
+  address: 0.0.0.0
+  session-timeout: 1200
+
+security:
+  user:
+    role: ADMIN
+    name: admin
+    password: admin
+  enableCsrf: true
+  
+endpoints:
+  shutdown:
+    enabled: true
+
+http:
+  mappers:
+    jsonPrettyPrint: true
